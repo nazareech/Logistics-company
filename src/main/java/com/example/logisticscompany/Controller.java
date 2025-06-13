@@ -24,6 +24,9 @@ public class Controller {
 
 
     public void initialize() {
+        // Ініціалізуємо користувача
+        User user = User.getInstance("John Doe", 0);
+
         Platform.runLater(() -> {
             if (truckImage.getImage() != null) {
                 truckImage.setClip(roundOffImageCorners( 20, (int) truckImage.getFitWidth(), (int) truckImage.getFitHeight()));
@@ -53,6 +56,8 @@ public class Controller {
                 stylePath = "/Style/vehicle_selection_style.css";
                 break;
             case "fuelForTripButton":
+                fxmlPath = "/fxml_files/fuel-for-trip-view.fxml";
+                stylePath = "/Style/fuel_for_trip_style.css";
                 break;
             case "viewPickupConditionsButton":
                 break;
