@@ -1,0 +1,26 @@
+/* Style for selected table rows */
+.table-row-cell:selected {
+    -fx-background-color: #b3d9ff;
+    -fx-table-cell-border-color: transparent;
+}
+
+/* Style for the selection count label */
+#selectionCountLabel {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2a5058;
+}
+
+/* Style for the submit button when enabled */
+#submitButton {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+#submitButton:hover {
+    -fx-background-color: #45a049;
+}
+
+#submitButton:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666666;
+}
