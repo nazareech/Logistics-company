@@ -62,6 +62,8 @@ public class Controller {
                 stylePath = "/Style/fuel_for_trip_style.css";
                 break;
             case "viewPickupConditionsButton":
+                fxmlPath = "/fxml_files/pickup-conditions-checker-view.fxml";
+                stylePath = "/Style/pickup_conditions_checker_style.css";
                 break;
             case "exitButton":
                 break;

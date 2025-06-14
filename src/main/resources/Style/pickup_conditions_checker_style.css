@@ -2,30 +2,24 @@
     -fx-background-color: #DBE0E5;
 }
 
-/* Style for input fields */
-.text-field {
-    -fx-pref-width: 200px;
+#locationInput, #conditionInput{
+    -fx-background-radius: 15px;
+}
+#pickupLocationSelector{
+    -fx-border-color: #637587;
+    -fx-border-radius: 15px;
+    -fx-background-color: #DBE0E5;
+    -fx-background-radius: 15px;
 }
 
-/* Style for results labels */
-#fuelNeededLabel, #fuelCostLabel {
-    -fx-font-weight: bold;
-}
-
-/* Style for calculate button */
-#calculateButton {
+.button {
     -fx-background-radius: 20px;
     -fx-background-color: #1773CF;
     /*-fx-background-color: #4CAF50;*/
     -fx-text-fill: white;
 }
-
-#calculateButton:hover {
+.button:hover {
     -fx-background-color: #45a049;
-}
-
-#calculateButton:pressed {
-    -fx-background-color: #3e8e41;
 }
 
 #backButton{
@@ -38,7 +32,8 @@
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
 }
-#enterGridPlane, #resultsGrid{
+
+#createOrReplaceConditionGridPlane, #getConditionGridPlane{
     -fx-border-color: #637587;
     -fx-border-radius: 15px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);

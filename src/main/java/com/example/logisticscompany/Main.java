@@ -34,8 +34,6 @@ public class Main extends Application {
 //            System.err.println("Failed to load icon: " + e.getMessage());
 //        }////
 
-
-        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }
