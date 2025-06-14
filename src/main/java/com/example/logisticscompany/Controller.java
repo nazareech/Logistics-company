@@ -62,14 +62,16 @@ public class Controller {
                 stylePath = "/Style/fuel_for_trip_style.css";
                 break;
             case "viewPickupConditionsButton":
-                fxmlPath = "/fxml_files/dispatcher-salary-calculator-view.fxml";
-                stylePath = "/Style/dispatcher_salary_calculator_style.css";
                 break;
             case "exitButton":
                 break;
             case "dispatcherSalaryButton":
+                fxmlPath = "/fxml_files/dispatcher-salary-calculator-view.fxml";
+                stylePath = "/Style/dispatcher_salary_calculator_style.css";
                 break;
             case "checkOilStatusButton":
+                fxmlPath = "/fxml_files/oil-change-tracker-view.fxml";
+                stylePath = "/Style/oil_change_tracker_style.css";
                 break;
         }
 

@@ -1,3 +1,7 @@
+.root{
+    -fx-background-color: #DBE0E5;
+}
+
 /* Style for input fields */
 .text-field {
     -fx-pref-width: 200px;

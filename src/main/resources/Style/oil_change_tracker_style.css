@@ -1,36 +1,31 @@
 .root{
     -fx-background-color: #DBE0E5;
 }
-
-/* Style for input fields */
-.text-field {
-    -fx-pref-width: 200px;
-}
-
 /* Style for results labels */
-#dispatchersSalaryLabel {
+#fuelNeededLabel, #fuelCostLabel {
     -fx-font-weight: bold;
-    -fx-text-fill: #637587;
-}
-#dispatchersSalaryGridPlane{
-    -fx-border-color: #637587;
-    -fx-border-radius: 15px;
 }
 
 /* Style for calculate button */
-#calculateButton {
+.button {
     -fx-background-radius: 20px;
     -fx-background-color: #1773CF;
     /*-fx-background-color: #4CAF50;*/
     -fx-text-fill: white;
 }
+#vehicleSelector{
+    -fx-border-color: #637587;
+    -fx-border-radius: 15px;
+    -fx-background-color: #DBE0E5;
+    -fx-background-radius: 15px;
+}
 
-#calculateButton:hover {
+.button:hover {
     -fx-background-color: #45a049;
 }
 
-#calculateButton:pressed {
-    -fx-background-color: #3e8e41;
+#updateMileageInput, #vehicleMileageInput{
+    -fx-background-radius: 15px;
 }
 
 #backButton{

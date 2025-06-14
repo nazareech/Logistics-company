@@ -1,3 +1,7 @@
+.root{
+    -fx-background-color: #DBE0E5;
+}
+
 /* Style for selected table rows */
 .table-row-cell:selected {
     -fx-background-color: #b3d9ff;
