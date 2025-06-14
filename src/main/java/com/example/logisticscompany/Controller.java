@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -49,8 +50,8 @@ public class Controller {
         Button clickedButton = (Button) event.getSource();
         String buttonId = clickedButton.getId();
 
-        String fxmlPath = "";
-        String stylePath = "";
+        String fxmlPath = "-";
+        String stylePath = "-";
 
         switch (buttonId){
             case "calculateVehicleWeightButton":
@@ -66,6 +67,7 @@ public class Controller {
                 stylePath = "/Style/pickup_conditions_checker_style.css";
                 break;
             case "exitButton":
+                exitFromApp();
                 break;
             case "dispatcherSalaryButton":
                 fxmlPath = "/fxml_files/dispatcher-salary-calculator-view.fxml";
@@ -77,14 +79,27 @@ public class Controller {
                 break;
         }
 
+        if(fxmlPath != "-" || stylePath != "-") {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
+            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(stylePath)).toExternalForm());
 
-        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(stylePath)).toExternalForm());
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
+
+    private void exitFromApp() {
+        String content = "Thank you for using Logisti Trainer!";
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.setOnHidden(event -> Platform.exit());
+        alert.showAndWait();
+    }
+
 }
