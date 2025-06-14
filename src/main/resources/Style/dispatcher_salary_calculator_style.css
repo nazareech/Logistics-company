@@ -4,8 +4,13 @@
 }
 
 /* Style for results labels */
-#fuelNeededLabel, #fuelCostLabel {
+#dispatchersSalaryLabel {
     -fx-font-weight: bold;
+    -fx-text-fill: #637587;
+}
+#dispatchersSalaryGridPlane{
+    -fx-border-color: #637587;
+    -fx-border-radius: 15px;
 }
 
 /* Style for calculate button */

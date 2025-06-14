@@ -21,11 +21,13 @@ public class Controller {
     @FXML
     private Label welcomeText;
     @FXML private ImageView truckImage;
+    @FXML private Label experienceLabel;
 
 
     public void initialize() {
         // Ініціалізуємо користувача
         User user = User.getInstance("John Doe", 0);
+        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
 
         Platform.runLater(() -> {
             if (truckImage.getImage() != null) {
@@ -60,6 +62,8 @@ public class Controller {
                 stylePath = "/Style/fuel_for_trip_style.css";
                 break;
             case "viewPickupConditionsButton":
+                fxmlPath = "/fxml_files/dispatcher-salary-calculator-view.fxml";
+                stylePath = "/Style/dispatcher_salary_calculator_style.css";
                 break;
             case "exitButton":
                 break;

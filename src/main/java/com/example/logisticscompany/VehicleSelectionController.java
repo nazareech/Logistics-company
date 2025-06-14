@@ -90,7 +90,7 @@ public class VehicleSelectionController {
             displayCalculationResults();
 
             // Збільшуємо рівень досвіду користувача
-            User.getInstance().increaseExperience(10);
+            user.increaseExperience(10);
 
             // Оновлюємо Label з рівнем досвіду
             experienceLabel.setText("Experience Level: " + user.getExperienceLevel());

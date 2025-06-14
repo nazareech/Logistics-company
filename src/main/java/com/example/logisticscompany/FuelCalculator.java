@@ -4,7 +4,7 @@ public class FuelCalculator {
     private final double pricePerGallon = 4.5;
 
     /**
-     * Розраховує потрібний об'єм палива і вартість.
+     * Розраховує потрібний об'єм палива та вартість.
      * @param miles Кількість миль.
      * @param fuelEfficiency Ефективність використання палива (MPG).
      * @return Масив {паливо необхідне (галони), вартість ($)}.

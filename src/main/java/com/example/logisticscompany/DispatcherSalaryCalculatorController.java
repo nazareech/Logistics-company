@@ -15,50 +15,47 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class FuelCalculatorController {
+public class DispatcherSalaryCalculatorController {
 
-    @FXML private TextField milesInput;
-    @FXML private TextField mpgInput;
-    @FXML private Label fuelNeededLabel;
-    @FXML private Label fuelCostLabel;
     @FXML private Button calculateButton;
     @FXML private Label experienceLabel;
 
-    private final FuelCalculator fuelCalculator = new FuelCalculator();
+    @FXML private TextField shipmentRevenueInput;
+    @FXML private TextField fullCostsInput;
+    @FXML private Label dispatchersSalaryLabel;
+
+    private final DispatcherSalaryCalculator salaryCalculator = new DispatcherSalaryCalculator();
 
     @FXML
     public void initialize() {
+        User user = User.getInstance();
 
         // Налаштування дії для кнопки "Calculate Fuel"
-        calculateButton.setOnAction(event -> calculateFuel());
+        calculateButton.setOnAction(event -> calculateSalary());
 
         // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
     }
 
-    /**
-     * Обробляє розрахунок палива, оновлює інтерфейс.
-     */
-    private void calculateFuel() {
+    private void calculateSalary(){
         try {
             // Зчитуємо значення з текстових полів
-            double miles = Double.parseDouble(milesInput.getText());
-            double fuelEfficiency = Double.parseDouble(mpgInput.getText());
+            double shipmentRevenue = Double.parseDouble(shipmentRevenueInput.getText());
+            double fuelCost = Double.parseDouble(fullCostsInput.getText());
 
-            // Виконуємо розрахунок палива за допомогою FuelCalculator
-            double[] results = fuelCalculator.calculateFuel(miles, fuelEfficiency);
-
-            // Оновлюємо відповідні Labels
-            fuelNeededLabel.setText(String.format("%.2f", results[0]));
-            fuelCostLabel.setText(String.format("$%.2f", results[1]));
+            // Виконуємо розрахунок
+            String results = salaryCalculator.calculateSalary(shipmentRevenue, fuelCost);
 
             // Збільшуємо рівень досвіду користувача
             User.getInstance().increaseExperience(5);
 
-            // Відображаємо початковий рівень досвіду
+            // Оновлюємо Label з рівнем досвіду
             experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
-        } catch (NumberFormatException e) {
-            showAlert("Invalid Input", "Please enter valid numeric values for miles and MPG.");
+
+
+            dispatchersSalaryLabel.setText(results);
+        } catch (NumberFormatException e){
+            showAlert("Invalid Input", "Please enter valid numeric values for 'Shipment Revenue' and 'Fuel Costs'.");
         } catch (IllegalArgumentException e) {
             showAlert("Error", e.getMessage());
         }
@@ -70,14 +67,16 @@ public class FuelCalculatorController {
      * @param message Текст повідомлення.
      */
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR); // Можна змінити тип на інформаційний, якщо потрібно
         alert.setTitle(title);
-        alert.setHeaderText(null);
+        alert.setHeaderText(null); // Якщо не потрібен заголовок, можна залишити значення null
         alert.setContentText(message);
-        alert.showAndWait();
+        alert.showAndWait(); // Відображаємо діалогове вікно
     }
 
-    @FXML private void backToMenu(ActionEvent event) throws IOException {
+
+    @FXML
+    private void backToMenu(ActionEvent event) throws IOException {
         String fxmlPath= "/fxml_files/main-scene-view.fxml";
         String stylePath= "/Style/main_scene_style.css";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
@@ -89,5 +88,4 @@ public class FuelCalculatorController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 }

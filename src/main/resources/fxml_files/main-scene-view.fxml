@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logisticscompany.Controller">
+<GridPane hgap="10.0" prefHeight="800.0" prefWidth="800.0" vgap="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logisticscompany.Controller">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" prefWidth="150.0" />
    </columnConstraints>
@@ -264,6 +264,11 @@
                </stops>
             </LinearGradient>
          </textFill>
+      </Label>
+      <Label fx:id="experienceLabel" text="Label" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
       </Label>
    </children>
 </GridPane>
