@@ -52,7 +52,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="calculateVehicleWeightButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="calculateVehicleWeightButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Select" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>
@@ -86,7 +86,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="fuelForTripButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="fuelForTripButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openScene" text="Select" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>
@@ -115,7 +115,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="viewPickupConditionsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="viewPickupConditionsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Select" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>
@@ -144,7 +144,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="exitButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="exitButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Exit" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>
@@ -173,7 +173,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="dispatcherSalaryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="dispatcherSalaryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Select" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>
@@ -206,7 +206,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="checkOilStatusButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Button fx:id="checkOilStatusButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openScene" text="Select" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                      </GridPane.margin></Button>

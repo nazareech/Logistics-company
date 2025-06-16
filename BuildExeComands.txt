@@ -1,0 +1,15 @@
+
+   jpackage ^
+       --input "E:\Learning-Java\Logistics-company\out\artifacts\Logistics_company_jar" ^
+       --main-jar "Logistics-company.jar" ^
+       --main-class "com/example/logisticscompany/OpenApp" ^
+       --dest "E:\Learning-Java\Logistics-company\installer" ^
+       --name "Logistics-company" ^
+       --app-version 1.0^
+       --type exe^ 
+       --icon "E:\Learning-Java\Logistics-company\src\main\resources\Img\Icon.ico"^
+       --win-console ^
+       --jlink-options "--strip-debug --no-header-files --no-man-pages"
+      
+
+   jpackage --input "E:\Learning-Java\Logistics-company\out\artifacts\Logistics_company_jar" --main-jar "Logistics-company.jar" --main-class "com/example/logisticscompany/OpenApp" --dest "E:\Learning-Java\Logistics-company\installer" --name "Logistics-company" --app-version 1.0 --icon "E:\Learning-Java\Logistics-company\src\main\resources\Img\Icon.ico" --type exe

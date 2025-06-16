@@ -2,22 +2,24 @@ package com.example.logisticscompany;
 
 public class User {
 
-    private String name;
+    private final String firstName;
+    private final String lastName;
     private int experienceLevel;
 
     // Єдиний екземпляр для Singleton
     private static User instance;
 
     // Приватний конструктор, щоб заборонити створення нових об'єктів
-    private User(String name, int experienceLevel) {
-        this.name = name;
+    private User(String name, String lastName, int experienceLevel) {
+        this.firstName = name;
+        this.lastName = lastName;
         this.experienceLevel = experienceLevel;
     }
 
     // Метод для отримання екземпляра Singleton
-    public static User getInstance(String name, int experienceLevel) {
+    public static User getInstance(String firstName, String lastName, int experienceLevel) {
         if (instance == null) {
-            instance = new User(name, experienceLevel);
+            instance = new User(firstName, lastName, experienceLevel);
         }
         return instance;
     }
@@ -31,7 +33,7 @@ public class User {
 
     // Getter для імені
     public String getName() {
-        return name;
+        return firstName + lastName;
     }
 
     // Getter для рівня досвіду
@@ -42,10 +44,5 @@ public class User {
     // Метод для збільшення рівня досвіду
     public void increaseExperience(int amount) {
         experienceLevel += amount;
-    }
-
-    // Метод для встановлення нового рівня досвіду
-    public void setExperienceLevel(int newExperienceLevel) {
-        this.experienceLevel = newExperienceLevel;
     }
 }

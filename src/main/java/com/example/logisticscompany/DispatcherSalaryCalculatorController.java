@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class DispatcherSalaryCalculatorController {
+public class DispatcherSalaryCalculatorController extends AlertManager{
 
     @FXML private Button calculateButton;
     @FXML private Label experienceLabel;
@@ -60,20 +60,6 @@ public class DispatcherSalaryCalculatorController {
             showAlert("Error", e.getMessage());
         }
     }
-
-    /**
-     * Відображає вікно із повідомленням про помилку.
-     * @param title Заголовок вікна.
-     * @param message Текст повідомлення.
-     */
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR); // Можна змінити тип на інформаційний, якщо потрібно
-        alert.setTitle(title);
-        alert.setHeaderText(null); // Якщо не потрібен заголовок, можна залишити значення null
-        alert.setContentText(message);
-        alert.showAndWait(); // Відображаємо діалогове вікно
-    }
-
 
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {

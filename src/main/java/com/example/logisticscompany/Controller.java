@@ -15,10 +15,9 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
-public class Controller {
+public class Controller extends AlertManager{
     @FXML
     private Label welcomeText;
     @FXML private ImageView truckImage;
@@ -27,7 +26,7 @@ public class Controller {
 
     public void initialize() {
         // Ініціалізуємо користувача
-        User user = User.getInstance("John Doe", 0);
+        User user = User.getInstance();
         experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
 
         Platform.runLater(() -> {
@@ -67,7 +66,10 @@ public class Controller {
                 stylePath = "/Style/pickup_conditions_checker_style.css";
                 break;
             case "exitButton":
-                exitFromApp();
+                String content = "Thank you for using Logisti Trainer!";
+                String title = "Exit";
+                String header = "GoodByе";
+                showAlert(title, header, content);
                 break;
             case "dispatcherSalaryButton":
                 fxmlPath = "/fxml_files/dispatcher-salary-calculator-view.fxml";
@@ -90,16 +92,4 @@ public class Controller {
             stage.show();
         }
     }
-
-    private void exitFromApp() {
-        String content = "Thank you for using Logisti Trainer!";
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Exit");
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.setOnHidden(event -> Platform.exit());
-        alert.showAndWait();
-    }
-
 }
