@@ -9,15 +9,6 @@ import java.sql.SQLException;
 public class DatabaseHeandler extends Configs{
     Connection dbConnection;
 
-//    public Connection getDbConnection() throws ClassNotFoundException, SQLException{
-//        String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
-//
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//        dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
-//        return dbConnection;
-//    }
-
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
         String connectionString = "jdbc:mysql://" + dbHost +
                 ":" + dbPort + "/" + dbName;
@@ -27,7 +18,7 @@ public class DatabaseHeandler extends Configs{
     }
 
     public void singUpUser(String username, String password, String email,
-                           String role, String gender) throws SQLException, ClassNotFoundException {
+                           int role, String gender) throws SQLException, ClassNotFoundException {
 
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
                 Const.USERS_USERNAME + ", " +
@@ -43,10 +34,11 @@ public class DatabaseHeandler extends Configs{
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             preparedStatement.setString(3, email);
-            preparedStatement.setString(4, role);
+            preparedStatement.setInt(4, role);
             preparedStatement.setString(5, gender);
 
             preparedStatement.executeUpdate();
+            System.out.println("Successfully registered user with username: " + username + " and email: " + email + ".");
         } catch (SQLException e) {
             // Краще логування помилки
             System.err.println("SQL Error: " + e.getMessage());

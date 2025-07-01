@@ -54,7 +54,7 @@ public class LoggingController extends AlertManager{
             }
 
             // Встановлюємо назву користувача
-            User user = User.getInstance(fistName, lastName, 0);
+            User user = User.getInstance(fistName, lastName, "Nazareech", "123", "nzar@gmail.com", 1, "Male", 0);
 
             String content = "We are glad to welcome you " + fistName + " " + lastName;
             showAlertInfo ("Welcome", content);

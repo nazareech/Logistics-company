@@ -26,9 +26,9 @@ public class SingUpUserController extends AlertManager{
     @FXML private ComboBox<String> positionComboBox;
 
     private DatabaseHeandler databaseHeandler;
+    private String[] positionsArray;
 
     @FXML void initialize() {
-        databaseHeandler = new DatabaseHeandler();
         setComboBoxes();
     }
 
@@ -36,34 +36,58 @@ public class SingUpUserController extends AlertManager{
         String[] genders = {"Male", "Female"};
         genderComboBox.getItems().addAll(genders);
 
-        String[] positions = {"Manager", "Dispatcher", "Warehouse worker", "Customer"};
-        positionComboBox.getItems().addAll(positions);
+        positionsArray = new String[]{"Manager", "Dispatcher", "Warehouse_worker", "Customer"};
+        positionComboBox.getItems().addAll(positionsArray);
     }
 
     @FXML
-    private void singUpUser(){
+    private void singNewUser() {
+        databaseHeandler = new DatabaseHeandler();
+
         try {
-            String username = usernameInput.getText();
-            String password = passwordInput.getText();
-            String email = emailInput.getText();
-
+            // Отримуємо значення з полів
+            String username = usernameInput.getText().trim();
+            String password = passwordInput.getText().trim();
+            String email = emailInput.getText().trim();
             String gender = genderComboBox.getValue();
-            String position = "1";
+            String selectedPosition = positionComboBox.getValue();
 
-            if (username.isBlank() || password.isBlank() || email.isBlank() || gender == null || position == null) {
+            // Перевіряємо, чи всі поля заповнені
+            if (username.isEmpty() || password.isEmpty() || email.isEmpty() || gender == null || selectedPosition == null) {
                 throw new IllegalArgumentException("Fields cannot be empty.");
             }
 
-            databaseHeandler.singUpUser(username, password, email, position, gender);
-        } catch (IllegalArgumentException e){
-            showAlert("Invalid Input", "Please fill in the fields");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            // Знаходимо індекс посади (якщо потрібно)
+            int positionIndex = -1;
+            for (int i = 0; i < positionsArray.length; i++) {
+                if (selectedPosition.equals(positionsArray[i])) {
+                    positionIndex = i + 1; // +1, якщо позиції нумеруються з 1
+                    break;
+                }
+            }
+
+            if (positionIndex == -1) {
+                throw new IllegalArgumentException("Invalid position.");
+            }
+
+            // Реєстрація користувача
+            databaseHeandler.singUpUser(username, password, email, positionIndex, gender);
+
+            // Якщо все ОК — показуємо повідомлення про успіх
+            showAlertInfo("Success", "User created successfully.");
+
+            // Очищаємо поля
+            usernameInput.clear();
+            passwordInput.clear();
+            emailInput.clear();
+            genderComboBox.setValue(null);
+            positionComboBox.setValue(null);
+
+        } catch (IllegalArgumentException e) {
+            showAlert("Input error", e.getMessage()); // Виводимо конкретну помилку
+        } catch (SQLException | ClassNotFoundException e) {
+            showAlert("Database error", "User registration failed: " + e.getMessage());
         }
-
-
     }
 
     @FXML

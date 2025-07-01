@@ -182,7 +182,7 @@
       </GridPane>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
-            <Button fx:id="createAccountButton" mnemonicParsing="false" onAction="#singUpUser" prefHeight="30.0" prefWidth="120.0" text="Create account" />
+            <Button fx:id="createAccountButton" mnemonicParsing="false" onAction="#singNewUser" prefHeight="30.0" prefWidth="120.0" text="Create account" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelBackToLoggining" prefHeight="30.0" prefWidth="120.0" text="Cancel" />
          </children>
       </VBox>
