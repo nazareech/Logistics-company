@@ -23,6 +23,7 @@ public class LoggingController extends AlertManager{
     @FXML private TextField firstNameInput;
     @FXML private TextField lastNameInput;
     @FXML private Button loginButton;
+    @FXML private Button singUpButton;
 
     @FXML
     private void initialize(){
@@ -56,7 +57,7 @@ public class LoggingController extends AlertManager{
             User user = User.getInstance(fistName, lastName, 0);
 
             String content = "We are glad to welcome you " + fistName + " " + lastName;
-            showAlertInfo("Welcome", content);
+            showAlertInfo ("Welcome", content);
 
             openMainMenuScene(event);
 
@@ -69,6 +70,7 @@ public class LoggingController extends AlertManager{
 
     }
 
+
     private void openMainMenuScene(ActionEvent event)throws IOException {
         String fxmlPath= "/fxml_files/main-scene-view.fxml";
         String stylePath= "/Style/main_scene_style.css";
@@ -80,7 +82,20 @@ public class LoggingController extends AlertManager{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
 
+    @FXML
+    private void openSingUpUser(ActionEvent event) throws IOException {
+        String fxmlPath = "/fxml_files/sing-up-user-view.fxml";
+        String stylePath = "/Style/sing_up_user_style.css";
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
+
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(stylePath)).toExternalForm());
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

@@ -11,6 +11,18 @@
     -fx-background-color: #45a049;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
 }
+#singUpButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #DBE0E5;
+    -fx-background-radius: 15px;
+    -fx-text-fill: Gray;
+}
+#singUpButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: Gray;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #DBE0E5;
+}
 
 #firstNameInput, #lastNameInput{
     -fx-background-radius: 15px;
