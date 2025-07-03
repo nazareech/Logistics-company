@@ -30,9 +30,9 @@ public class OilChangeTrackerController {
 
     @FXML
     public void initialize() {
-        User user = User.getInstance();
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//        User user = User.getInstance();
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
 
         // Отримуємо список транспортних засобів з VehicleManager
         VehicleManager vehicleManager = VehicleManager.getInstance();
@@ -87,10 +87,10 @@ public class OilChangeTrackerController {
             return;
         }
 
-        // Збільшуємо рівень досвіду користувача
-        User.getInstance().increaseExperience(3);
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//        // Збільшуємо рівень досвіду користувача
+//        User.getInstance().increaseExperience(3);
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
 
         String output = oilChangeTracker.checkOilChange(selectedVehicle);
 

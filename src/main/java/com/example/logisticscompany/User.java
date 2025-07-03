@@ -2,20 +2,19 @@ package com.example.logisticscompany;
 
 public class User {
 
-    private final String firstName;
-    private final String lastName;
-    private final String username;
-    private final String password;
-    private final String email;
-    private final int roleId;
-    private final String gender;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String password;
+    private String email;
+    private int roleId;
+    private String gender;
     private int experienceLevel;
 
-    // Єдиний екземпляр для Singleton
-    private static User instance;
+    public User() {}
 
     // Приватний конструктор, щоб заборонити створення нових об'єктів
-    private User(String name, String lastName,
+    public User(String name, String lastName,
                  String username, String password,
                  String email, int roleId,
                  String gender, int experienceLevel) {
@@ -29,37 +28,6 @@ public class User {
         this.experienceLevel = experienceLevel;
     }
 
-    public User(int experienceLevel, String gender,
-                int roleId, String email,
-                String password, String username,
-                String lastName, String firstName) {
-        this.experienceLevel = experienceLevel;
-        this.gender = gender;
-        this.roleId = roleId;
-        this.email = email;
-        this.password = password;
-        this.username = username;
-        this.lastName = lastName;
-        this.firstName = firstName;
-    }
-
-    // Метод для отримання екземпляра Singleton
-    public static User getInstance(String firstName, String lastName,
-                                   String username, String password,
-                                   String email, int roleId,
-                                   String gender, int experienceLevel) {
-        if (instance == null) {
-            instance = new User(experienceLevel, gender, roleId, email, password, username, lastName, firstName);
-        }
-        return instance;
-    }
-
-    public static User getInstance() {
-        if (instance == null) {
-            throw new IllegalStateException("User instance has not been initialized yet. Call getInstance(String name, int experienceLevel) first.");
-        }
-        return instance;
-    }
 
     // Getter для імені
     public String getName() {
@@ -108,7 +76,12 @@ public class User {
         this.experienceLevel = experienceLevel;
     }
 
-    public static void setInstance(User instance) {
-        User.instance = instance;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

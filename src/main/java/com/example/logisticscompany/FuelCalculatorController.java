@@ -32,8 +32,8 @@ public class FuelCalculatorController {
         // Налаштування дії для кнопки "Calculate Fuel"
         calculateButton.setOnAction(event -> calculateFuel());
 
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
     }
 
     /**
@@ -52,11 +52,11 @@ public class FuelCalculatorController {
             fuelNeededLabel.setText(String.format("%.2f", results[0]));
             fuelCostLabel.setText(String.format("$%.2f", results[1]));
 
-            // Збільшуємо рівень досвіду користувача
-            User.getInstance().increaseExperience(5);
+//            // Збільшуємо рівень досвіду користувача
+//            User.getInstance().increaseExperience(5);
 
-            // Відображаємо початковий рівень досвіду
-            experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//            // Відображаємо початковий рівень досвіду
+//            experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
         } catch (NumberFormatException e) {
             showAlert("Invalid Input", "Please enter valid numeric values for miles and MPG.");
         } catch (IllegalArgumentException e) {

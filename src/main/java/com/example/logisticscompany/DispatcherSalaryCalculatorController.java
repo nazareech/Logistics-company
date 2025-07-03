@@ -28,13 +28,13 @@ public class DispatcherSalaryCalculatorController extends AlertManager{
 
     @FXML
     public void initialize() {
-        User user = User.getInstance();
+//        User user = User.getInstance();
 
         // Налаштування дії для кнопки "Calculate Fuel"
         calculateButton.setOnAction(event -> calculateSalary());
 
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
     }
 
     private void calculateSalary(){
@@ -46,11 +46,11 @@ public class DispatcherSalaryCalculatorController extends AlertManager{
             // Виконуємо розрахунок
             String results = salaryCalculator.calculateSalary(shipmentRevenue, fuelCost);
 
-            // Збільшуємо рівень досвіду користувача
-            User.getInstance().increaseExperience(5);
-
-            // Оновлюємо Label з рівнем досвіду
-            experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//            // Збільшуємо рівень досвіду користувача
+//            User.getInstance().increaseExperience(5);
+//
+//            // Оновлюємо Label з рівнем досвіду
+//            experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
 
 
             dispatchersSalaryLabel.setText(results);

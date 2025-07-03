@@ -55,7 +55,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="Last Name:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                  <Label text="Password:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="lastNameInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your last name" />
+                        <TextField fx:id="passwordInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your password" />
                      </children>
                   </GridPane>
                </children>
@@ -82,7 +82,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="17.0" prefWidth="135.0" text="First Name:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                  <Label prefHeight="17.0" prefWidth="135.0" text="Username:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -95,7 +95,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="firstNameInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your first name" />
+                        <TextField fx:id="usernameInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your username" />
                      </children>
                   </GridPane>
                </children>

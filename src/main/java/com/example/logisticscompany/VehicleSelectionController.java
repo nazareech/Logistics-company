@@ -29,7 +29,7 @@ public class VehicleSelectionController {
 
     @FXML
     public void initialize() {
-        User user = User.getInstance();
+//        User user = User.getInstance();
 
         // Отримуємо дані із синглтон-класу VehicleManager
         VehicleManager vehicleManager = VehicleManager.getInstance();
@@ -57,17 +57,17 @@ public class VehicleSelectionController {
         submitButton.setOnAction(event -> {
             displayCalculationResults();
 
-            // Збільшуємо рівень досвіду користувача
-            user.increaseExperience(10);
-
-            // Оновлюємо Label з рівнем досвіду
-            experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
-
-            System.out.println("User " + user.getName() + "'s experience level increased to: " + user.getExperienceLevel());
+//            // Збільшуємо рівень досвіду користувача
+//            user.increaseExperience(10);
+//
+//            // Оновлюємо Label з рівнем досвіду
+//            experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//
+//            System.out.println("User " + user.getName() + "'s experience level increased to: " + user.getExperienceLevel());
         });
 
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
     }
 
 

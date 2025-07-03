@@ -17,6 +17,8 @@ import java.util.Objects;
 
 public class SingUpUserController extends AlertManager{
 
+    @FXML private TextField firstNameInput;
+    @FXML private TextField lastNameInput;
     @FXML private TextField usernameInput;
     @FXML private TextField passwordInput;
     @FXML private TextField emailInput;
@@ -46,6 +48,8 @@ public class SingUpUserController extends AlertManager{
 
         try {
             // Отримуємо значення з полів
+            String firstName = firstNameInput.getText().trim();
+            String lastName = lastNameInput.getText().trim();
             String username = usernameInput.getText().trim();
             String password = passwordInput.getText().trim();
             String email = emailInput.getText().trim();
@@ -53,7 +57,7 @@ public class SingUpUserController extends AlertManager{
             String selectedPosition = positionComboBox.getValue();
 
             // Перевіряємо, чи всі поля заповнені
-            if (username.isEmpty() || password.isEmpty() || email.isEmpty() || gender == null || selectedPosition == null) {
+            if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty() || gender == null || selectedPosition == null) {
                 throw new IllegalArgumentException("Fields cannot be empty.");
             }
 
@@ -70,13 +74,17 @@ public class SingUpUserController extends AlertManager{
                 throw new IllegalArgumentException("Invalid position.");
             }
 
+            User user = new User(firstName, lastName,
+                    username, password, email, positionIndex, gender, 0 );
             // Реєстрація користувача
-            databaseHeandler.singUpUser(username, password, email, positionIndex, gender);
+            databaseHeandler.singUpUser(user);
 
             // Якщо все ОК — показуємо повідомлення про успіх
             showAlertInfo("Success", "User created successfully.");
 
             // Очищаємо поля
+            firstNameInput.clear();
+            lastNameInput.clear();
             usernameInput.clear();
             passwordInput.clear();
             emailInput.clear();

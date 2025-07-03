@@ -28,10 +28,10 @@ public class PickupConditionsCheckerController {
 
     @FXML
     public void initialize() {
-        User user = User.getInstance();
-
-        // Відображаємо початковий рівень досвіду
-        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//        User user = User.getInstance();
+//
+//        // Відображаємо початковий рівень досвіду
+//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
 
         // Завантажуємо дані локацій у випадаючий список
         updatePickupLocationSelector();
@@ -78,11 +78,11 @@ public class PickupConditionsCheckerController {
         // Оновлюємо випадаючий список
         updatePickupLocationSelector();
 
-        // Збільшуємо рівень досвіду користувача
-        User.getInstance().increaseExperience(3);
-
-        // Оновлюємо Label з рівнем досвіду
-        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//        // Збільшуємо рівень досвіду користувача
+//        User.getInstance().increaseExperience(3);
+//
+//        // Оновлюємо Label з рівнем досвіду
+//        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
 
     }
 
@@ -116,11 +116,11 @@ public class PickupConditionsCheckerController {
         }
         alert.showAndWait();
 
-        // Збільшуємо рівень досвіду користувача
-        User.getInstance().increaseExperience(3);
-
-        // Оновлюємо Label з рівнем досвіду
-        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
+//        // Збільшуємо рівень досвіду користувача
+//        User.getInstance().increaseExperience(3);
+//
+//        // Оновлюємо Label з рівнем досвіду
+//        experienceLabel.setText("Experience Level: " + User.getInstance().getExperienceLevel());
 
     }
 

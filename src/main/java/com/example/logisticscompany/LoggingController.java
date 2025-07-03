@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -15,13 +14,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class LoggingController extends AlertManager{
     @FXML private ImageView iconImage;
 
-    @FXML private TextField firstNameInput;
-    @FXML private TextField lastNameInput;
+    @FXML private TextField usernameInput;
+    @FXML private TextField passwordInput;
     @FXML private Button loginButton;
     @FXML private Button singUpButton;
 
@@ -45,29 +46,59 @@ public class LoggingController extends AlertManager{
     private void logInUser(ActionEvent event){
         try {
             // Зчитуємо значення з текстових полів
-            String fistName = firstNameInput.getText();
-            String  lastName = lastNameInput.getText();
+            String usernameInputText = usernameInput.getText();
+            String  passwordInputText = passwordInput.getText();
 
             // Перевіряємо, чи поля пусті
-            if (fistName == null || fistName.isBlank() || lastName == null || lastName.isBlank()) {
+            if (usernameInputText == null || usernameInputText.isBlank() || passwordInputText == null || passwordInputText.isBlank()) {
                 throw new IllegalArgumentException("Fields 'First Name' and 'Last Name' cannot be empty.");
             }
 
-            // Встановлюємо назву користувача
-            User user = User.getInstance(fistName, lastName, "Nazareech", "123", "nzar@gmail.com", 1, "Male", 0);
+            loginUser(usernameInputText, passwordInputText);
 
-            String content = "We are glad to welcome you " + fistName + " " + lastName;
+            String content = "We are glad to welcome you " + usernameInputText;
             showAlertInfo ("Welcome", content);
 
             openMainMenuScene(event);
 
+            usernameInput.clear();
+            passwordInput.clear();
+
         } catch (IllegalArgumentException e){
-            showAlert("Invalid Input", "Please fill in the fields 'First Name' and 'Last Name'.");
+            showAlert("Invalid Input", "Please fill in the fields 'First Name' and 'Last Name'.", e.getMessage());
+        } catch (SQLException e) {
+            showAlert("Помилка бази даних", "Помилка: " + e.getMessage());
         } catch (IOException e) {
-            showAlert("Error", e.getMessage());
+            showAlert("Помилка", "Не вдалося відкрити головне меню: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void loginUser(String username, String password) throws SQLException, ClassNotFoundException {
+        DatabaseHeandler databaseHeandler = new DatabaseHeandler();
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        ResultSet resultSet = databaseHeandler.getUsers(user);
+
+        if (resultSet == null){
+            showAlert("Invalid Input", "Uncorrected username or password. Please try again");
+            throw new SQLException("Uncorect username or password. Please try again.");
+        }
+
+        int count = 0;
+        while (resultSet.next()){
+            count++;
+        }
+
+        if (count >= 1){
+            System.out.println("User logged in successfully.");
+        }else {
+            throw new SQLException("No such user found.");
+        }
     }
 
 

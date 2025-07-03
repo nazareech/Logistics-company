@@ -26,8 +26,8 @@ public class Controller extends AlertManager{
 
     public void initialize() {
         // Ініціалізуємо користувача
-        User user = User.getInstance();
-        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+//        User user = User.getInstance();
+//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
 
         Platform.runLater(() -> {
             if (truckImage.getImage() != null) {

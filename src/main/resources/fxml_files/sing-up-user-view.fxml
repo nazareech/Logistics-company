@@ -34,13 +34,15 @@
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints fx:id="reduseTheSetGridPlane" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <GridPane GridPane.rowIndex="1">
+            <GridPane GridPane.rowIndex="3">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -67,7 +69,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <GridPane>
+            <GridPane GridPane.rowIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -94,7 +96,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="2">
+            <GridPane GridPane.rowIndex="4">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -121,7 +123,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="3">
+            <GridPane GridPane.rowIndex="5">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -148,7 +150,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="4">
+            <GridPane GridPane.rowIndex="6">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -171,6 +173,60 @@
                      </rowConstraints>
                      <children>
                         <ComboBox fx:id="genderComboBox" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="250.0" />
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="135.0" text="First Name:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="300.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextField fx:id="firstNameInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your first name:" />
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="135.0" text="Last Name:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="300.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextField fx:id="lastNameInput" prefHeight="40.0" prefWidth="250.0" promptText="Enter your last name:" />
                      </children>
                   </GridPane>
                </children>

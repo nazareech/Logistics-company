@@ -1,9 +1,6 @@
 package com.example.logisticscompany;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class DatabaseHeandler extends Configs{
@@ -17,8 +14,7 @@ public class DatabaseHeandler extends Configs{
         return DriverManager.getConnection(connectionString, dbUser, dbPass);
     }
 
-    public void singUpUser(String username, String password, String email,
-                           int role, String gender) throws SQLException, ClassNotFoundException {
+    public void singUpUser(User user) throws SQLException, ClassNotFoundException {
 
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
                 Const.USERS_USERNAME + ", " +
@@ -31,14 +27,14 @@ public class DatabaseHeandler extends Configs{
         try (Connection connection = getDbConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insert)) {
 
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
-            preparedStatement.setString(3, email);
-            preparedStatement.setInt(4, role);
-            preparedStatement.setString(5, gender);
+            preparedStatement.setString(1, user.getUsername());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setInt(4, user.getRoleId());
+            preparedStatement.setString(5, user.getGender());
 
             preparedStatement.executeUpdate();
-            System.out.println("Successfully registered user with username: " + username + " and email: " + email + ".");
+            System.out.println("Successfully registered user with username: " + user.getUsername() + " and email: " + user.getEmail() + ".");
         } catch (SQLException e) {
             // Краще логування помилки
             System.err.println("SQL Error: " + e.getMessage());
@@ -47,5 +43,17 @@ public class DatabaseHeandler extends Configs{
         }
     }
 
+
+    public ResultSet getUsers(User user) throws SQLException, ClassNotFoundException {
+        String select = "SELECT * FROM " + Const.USER_TABLE +
+                " WHERE " + Const.USERS_USERNAME + " =? AND " +
+                Const.USERS_PASSWORD + "=?";
+
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+        preparedStatement.setString(1, user.getUsername());
+        preparedStatement.setString(2, user.getPassword());
+
+        return preparedStatement.executeQuery();
+    }
 
 }
