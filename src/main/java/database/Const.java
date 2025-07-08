@@ -1,4 +1,4 @@
-package com.example.logisticscompany;
+package database;
 
 public class Const {
     public static final String USER_TABLE = "users";
@@ -8,6 +8,8 @@ public class Const {
     public static final String USERS_EMAIL = "email";
     public static final String USERS_ROLE_ID = "role_id";
     public static final String USERS_GENDER = "gender";
+    public static final String USERS_FIRST_NAME = "first_name";
+    public static final String USERS_LAST_NAME = "last_name";
 
     public static final String ROLES_TABLE = "roles";
     public static final String ROLES_ID = "role_id";

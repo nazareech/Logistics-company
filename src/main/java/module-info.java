@@ -8,4 +8,6 @@ module com.example.logisticscompany {
 
     opens com.example.logisticscompany to javafx.fxml;
     exports com.example.logisticscompany;
+    exports database;
+    opens database to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package com.example.logisticscompany;
+package database;
 
 public class Configs {
     protected String dbName = "LogisticCompany";

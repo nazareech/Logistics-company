@@ -1,6 +1,7 @@
-package com.example.logisticscompany;
+package database;
 
-public class User {
+public class CurrentUser {
+private static CurrentUser instance;
 
     private String firstName;
     private String lastName;
@@ -9,15 +10,15 @@ public class User {
     private String email;
     private int roleId;
     private String gender;
-    private int experienceLevel;
 
-    public User() {}
+    public CurrentUser() {
+    }
 
     // Приватний конструктор, щоб заборонити створення нових об'єктів
-    public User(String name, String lastName,
-                 String username, String password,
-                 String email, int roleId,
-                 String gender, int experienceLevel) {
+    public void initUser(String name, String lastName,
+                String username, String password,
+                String email, int roleId,
+                String gender) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -25,23 +26,19 @@ public class User {
         this.gender = gender;
         this.firstName = name;
         this.lastName = lastName;
-        this.experienceLevel = experienceLevel;
     }
 
+    // Метод для отримання єдиного екземпляра
+    public static synchronized CurrentUser getInstance() {
+        if (instance == null) {
+            instance = new CurrentUser();
+        }
+        return instance;
+    }
 
     // Getter для імені
     public String getName() {
-        return firstName + lastName;
-    }
-
-    // Getter для рівня досвіду
-    public int getExperienceLevel() {
-        return experienceLevel;
-    }
-
-    // Метод для збільшення рівня досвіду
-    public void increaseExperience(int amount) {
-        experienceLevel += amount;
+        return firstName + " " + lastName;
     }
 
     public String getFirstName() {
@@ -72,8 +69,24 @@ public class User {
         return gender;
     }
 
-    public void setExperienceLevel(int experienceLevel) {
-        this.experienceLevel = experienceLevel;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public void setUsername(String username) {
@@ -82,6 +95,11 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    // Метод для скидання даних (на випадок виходу користувача)
+    public static void resetInstance() {
+        instance = null;
     }
 
 }

@@ -1,5 +1,8 @@
 package com.example.logisticscompany;
 
+import animations.Shake;
+import database.DatabaseHeandler;
+import database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,8 +64,7 @@ public class LoggingController extends AlertManager{
 
             openMainMenuScene(event);
 
-            usernameInput.clear();
-            passwordInput.clear();
+            clearFields();
 
         } catch (IllegalArgumentException e){
             showAlert("Invalid Input", "Please fill in the fields 'First Name' and 'Last Name'.", e.getMessage());
@@ -82,9 +84,12 @@ public class LoggingController extends AlertManager{
         user.setUsername(username);
         user.setPassword(password);
 
-        ResultSet resultSet = databaseHeandler.getUsers(user);
+        ResultSet resultSet = databaseHeandler.chekUsers(user);
 
         if (resultSet == null){
+            shakeAnim();
+            clearFields();
+
             showAlert("Invalid Input", "Uncorrected username or password. Please try again");
             throw new SQLException("Uncorect username or password. Please try again.");
         }
@@ -97,6 +102,9 @@ public class LoggingController extends AlertManager{
         if (count >= 1){
             System.out.println("User logged in successfully.");
         }else {
+            shakeAnim();
+            clearFields();
+
             throw new SQLException("No such user found.");
         }
     }
@@ -128,5 +136,16 @@ public class LoggingController extends AlertManager{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private void clearFields(){
+        usernameInput.clear();
+        passwordInput.clear();
+    }
+    private void shakeAnim(){
+        Shake userLoginShake = new Shake(usernameInput);
+        Shake passwLoginShake = new Shake(passwordInput);
+        userLoginShake.playAnim();
+        passwLoginShake.playAnim();
     }
 }

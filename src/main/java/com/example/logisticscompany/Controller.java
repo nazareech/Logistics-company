@@ -1,5 +1,6 @@
 package com.example.logisticscompany;
 
+import database.CurrentUser;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,13 +22,12 @@ public class Controller extends AlertManager{
     @FXML
     private Label welcomeText;
     @FXML private ImageView truckImage;
-    @FXML private Label experienceLabel;
+    @FXML private Label userInfoLabel;
 
 
     public void initialize() {
         // Ініціалізуємо користувача
-//        User user = User.getInstance();
-//        experienceLabel.setText("Experience Level: " + user.getExperienceLevel());
+        userInfoLabel.setText(CurrentUser.getInstance().getName().toString());
 
         Platform.runLater(() -> {
             if (truckImage.getImage() != null) {

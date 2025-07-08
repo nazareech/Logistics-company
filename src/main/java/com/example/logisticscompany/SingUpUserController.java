@@ -1,5 +1,7 @@
 package com.example.logisticscompany;
 
+import database.DatabaseHeandler;
+import database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
