@@ -1,0 +1,25 @@
+.root{
+    -fx-background-color: #DBE0E5;
+}
+
+#gridPlane1, #gridPlane2, #gridPlane3,
+#gridPlane4, #gridPlane5, #gridPlane6{
+    -fx-border-color: #637587;
+    -fx-border-width: 2;
+    -fx-border-radius: 15px;
+    -fx-border-style: solid;
+}
+
+.button{
+    -fx-font-weight: bold;
+    -fx-background-color: #1773CF;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #DBE0E5;
+}
+#backToHomeButton:hover{
+    -fx-text-fill: #DBE0E5;
+    -fx-background-color: #FF5733;
+    -fx-border-radius: 15px;
+    -fx-border-width: 5px;
+    -fx-border-color: #FF5733;
+}
