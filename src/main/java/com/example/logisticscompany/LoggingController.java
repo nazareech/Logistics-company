@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ public class LoggingController extends AlertManager{
     @FXML private TextField passwordInput;
     @FXML private Button loginButton;
     @FXML private Button singUpButton;
+    @FXML private GridPane mainGridPlane;
+    @FXML private Button showProfileInfoButton;
 
     @FXML
     private void initialize(){
@@ -43,6 +46,14 @@ public class LoggingController extends AlertManager{
         } catch (Exception e) {
             System.err.println("Failed to load icon: " + e.getMessage());
         }
+
+        showProfileInfoButton.onActionProperty().set(event -> {
+            try {
+                showInformation(event);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     @FXML
@@ -147,5 +158,21 @@ public class LoggingController extends AlertManager{
         Shake passwLoginShake = new Shake(passwordInput);
         userLoginShake.playAnim();
         passwLoginShake.playAnim();
+    }
+
+    private void showInformation(ActionEvent event) throws IOException {
+        System.out.println("You are selected information of your profile");
+
+        String fxmlPath= "/fxml_files/user-profile-view.fxml";
+        String stylePath= "/Style/user_profile_style.css";
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
+
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(stylePath)).toExternalForm());
+
+        Stage stage = (Stage) mainGridPlane.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

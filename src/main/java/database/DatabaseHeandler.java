@@ -48,7 +48,8 @@ public class DatabaseHeandler extends Configs{
     }
 
 
-    public ResultSet chekUsers(User loginUser) throws SQLException, ClassNotFoundException {
+    public ResultSet chekUsers(User loginUser)
+            throws SQLException, ClassNotFoundException {
         String select = "SELECT * FROM " + Const.USER_TABLE +
                 " WHERE " + Const.USERS_USERNAME + " =? AND " +
                 Const.USERS_PASSWORD + "=?";
@@ -70,6 +71,25 @@ public class DatabaseHeandler extends Configs{
                 return preparedStatement.executeQuery();
             }
             return null;
+        }
+    }
+
+    public void updateUserRole(int userId, int roleId) throws SQLException, ClassNotFoundException {
+    }
+
+    public String chekUserPosition(int userId) throws SQLException, ClassNotFoundException {
+
+        String select = "SELECT " + Const.ROLES_NAME + " FROM " + Const.ROLES_TABLE +
+                " WHERE " + Const.ROLES_ID + " =?" ;
+        try(PreparedStatement preparedStatement = getDbConnection().prepareStatement(select)) {
+            preparedStatement.setInt(1, userId);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString(Const.ROLES_NAME);
+                }
+                return null;
+            }
         }
     }
 }

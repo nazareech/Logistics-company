@@ -10,7 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -19,11 +22,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Controller extends AlertManager{
-    @FXML
-    private Label welcomeText;
+    @FXML private Label welcomeText;
     @FXML private ImageView truckImage;
     @FXML private Label userInfoLabel;
-
+    @FXML private MenuItem informationMenuItem;
+    @FXML private GridPane mainGridPlane;
 
     public void initialize() {
         // Ініціалізуємо користувача
@@ -34,6 +37,7 @@ public class Controller extends AlertManager{
                 truckImage.setClip(roundOffImageCorners( 20, (int) truckImage.getFitWidth(), (int) truckImage.getFitHeight()));
             }
         });
+
     }
 
     private Rectangle roundOffImageCorners(int radius, int imgWidth, int imgHeight) {
@@ -91,5 +95,21 @@ public class Controller extends AlertManager{
             stage.setScene(new Scene(root));
             stage.show();
         }
+    }
+
+    @FXML private void showInformation(ActionEvent event) throws IOException {
+        System.out.println("You are selected information of your profile");
+
+        String fxmlPath= "/fxml_files/user-profile-view.fxml";
+        String stylePath= "/Style/user_profile_style.css";
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
+
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(stylePath)).toExternalForm());
+
+        Stage stage = (Stage) mainGridPlane.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

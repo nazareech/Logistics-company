@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logisticscompany.LoggingController">
+<GridPane fx:id="mainGridPlane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logisticscompany.LoggingController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="400.0" prefWidth="700.0" />
@@ -114,6 +114,7 @@
          <children>
             <Button fx:id="loginButton" alignment="CENTER" onAction="#logInUser" prefHeight="30.0" prefWidth="110.0" text="Log in" />
             <Button fx:id="singUpButton" mnemonicParsing="false" onAction="#openSingUpUser" prefHeight="30.0" prefWidth="110.0" text="Sing Up" />
+            <Button fx:id="showProfileInfoButton" layoutX="305.0" layoutY="116.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" text="show profile info" />
          </children>
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
